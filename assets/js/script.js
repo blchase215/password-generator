@@ -43,8 +43,8 @@ var checkRandomLoop = function (set) {
   console.log(randomPick.length);
   return randomPick;
 };
-// checkLoop(alphaUppers); proof of concept for iteration
-checkRandomLoop(numeric);
+// checkLoop(alphaUppers);    //proof of concept for iteration
+// checkRandomLoop(numeric);  //proof of concept for random iteration 
 
 
 
