@@ -21,13 +21,20 @@ generateBtn.addEventListener('click', writePassword);
 
 
 // psuedocode
+
+var passlength = '';
 var alphaLowers = "abcdefghijklmnopqrstuvwxyz";
 var alphaUppers = alphaLowers.toUpperCase();
 var numeric = "0123456789";
-console.log (alphaLowers.length);
-console.log (alphaUppers.length);
+var specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+console.log(alphaLowers.length);
+console.log(alphaUppers.length);
+console.log(numeric.length);
+console.log(specChar.length);
 console.log(alphaLowers);
-console.log (alphaUppers);
+console.log(alphaUppers);
+console.log(numeric);
+console.log(specChar);
 
 
 var checkLoop = function (set) {
@@ -91,10 +98,20 @@ var checkRandomLoop = function (set) {
 
 // algorithm
 // 
-// add string variabit
-// 
-// 
-// 
+// choiceVar is an array
+// add string variable 
+// of each choice to choiceVar
+// iterate through with:
+var choiceVar = [];
+choiceVar.push(alphaLowers, alphaUppers, numeric, specChar);
+var checkRandomLoop = function (set) {
+  for (i = 0; i < set.length; i++) {
+    var randomPick = Math.floor(Math.random() * set.length);
+    console.log(randomPick);
+  };
+  console.log(randomPick.length);
+  return randomPick;
+}; 
 // 
 // 
 // 
