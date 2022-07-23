@@ -104,7 +104,8 @@ var checkRandomLoop = function (set) {
 // iterate through with:
 var choiceVar = [];
 choiceVar.push(alphaLowers, alphaUppers, numeric, specChar);
-var checkRandomLoop = function (set) {
+console.log(choiceVar);
+var randomChoiceLoop = function (set) {
   for (i = 0; i < set.length; i++) {
     var randomPick = Math.floor(Math.random() * set.length);
     console.log(randomPick);
@@ -113,9 +114,12 @@ var checkRandomLoop = function (set) {
   return randomPick;
 }; 
 // 
-// 
-// 
-// 
+// no character set options chosen message
+//
+// if (password.length === 0) {
+//    alert("A password can not be created from thin air!  Please choose at least one type of character to include.");
+//    return "";
+// }
 // 
 // 
 // 
