@@ -1,21 +1,16 @@
 // Assignment Code
+
+var userChoice = "";
+var alphaLowers = "abcdefghijklmnopqrstuvwxyz";
+var alphaUppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numeric = "0123456789";
+var specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
 var generateBtn = document.querySelector('#generate');
 
 function generatePassword() {
-  
-  var password = '';
-  var alphaLowers = "abcdefghijklmnopqrstuvwxyz";
-  var alphaUppers = alphaLowers.toUpperCase();
-  var numeric = "0123456789";
-  var specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  
-  // array of character sets
-  // undesired character sets 
-  var choiceVar = [alphaLowers, alphaUppers, numeric, specChar];
 
-  // store value of unwanted characters
-  var notChosen = [];
-  
+
 // User chooses password length...
   
   var userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
@@ -23,12 +18,12 @@ function generatePassword() {
 // 0 is entered
 
   if (userLength == 0) {
-    password = "William Corgan is a Zero, \nbut your password shouldn't be.\nTry again.";
+    password = "William Corgan is a Zero, \nbut your password shouldn't be.\n\nTry again.";
     return password;
   };
 
   if (userLength < 0) {
-    password = "A password can not be created from thin air!\nTry again.";
+    password = "Why so negative?\nA password can not be created from thin air!\nTry again.";
     return password;
   };
   
@@ -41,42 +36,72 @@ function generatePassword() {
 
 // Character set inclusion prompts
   
-  var lowers = window.prompt("Use 'lowercase' letters?");
-  var UPPERS = window.prompt("USE 'UPPERCASE' LETTERS?");
-  var num = window.prompt("Use Numerical values 0 - 9?");
-  var spec = window.prompt(" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~");
+  var lowers = window.confirm("Use 'lowercase' letters?");
+  var uppers = window.confirm("USE 'UPPERCASE' LETTERS?");
+  var num = window.confirm("Use Numerical values 0 - 9?");
+  var spec = window.confirm("Use Special characters?");
   
 // remove if false
 
-  if (!lowers) {
-     var not = choiceVar.shift();
-     notChosen.push(not);
+  if (lowers) {
+    userChoice += alphaLowers;
   }; 
-
-  if (!UPPERS) {
-     var not = choiceVar.shift();
-     notChosen.push(not);
+  console.log(userChoice);
+  if (uppers) {
+    userChoice += alphaUppers;
   };
+  console.log(userChoice);
+  if (spec) {
+    userChoice += specChar;
+  };
+  console.log(userChoice);
+  if (num) {
+    userChoice += numeric;
+  };
+  console.log(userChoice);
+  // if (num) {
+  //   userChoice = userChoice.concat(numeric);
+  // };
+  // console.log(userChoice);
+  // if (lowers) {
+  //   userChoice = userChoice.concat(alphaLowers);
+  // }; 
+  // console.log(userChoice);
+  // if (uppers) {
+  //   userChoice = userChoice.concat(alphaUppers);
+  // };
+  // console.log(userChoice);
+  // if (spec) {
+  //   userChoice = userChoice.concat(specChar);
+  // };
+  // console.log(userChoice);
 
-  if (!num) {
-     var not = choiceVar.shift();
-     notChosen.push(not);
-  } 
-  if (!spec) {
-     var not = choiceVar.shift();
-     notChosen.push(not);
-  }; 
-
-console.log(notChosen);
-
-  if (notChosen.length === 4) {
-    password = "Please choose at least one type of character to include.";
+  if (userChoice === "") {
+    password = "Please choose at least one character type to include.";
     return password;
-  } else {
-    
   };
   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
 };
+
+
+
+// check if any character sets were selected
+
+//   if (notChosen.length === 4) {
+//     password = "Please choose at least one character type to include.";
+//     notChosen = [];
+//     return password;
+//   } else {
+//     var passwordPool = ""
+//     for (i = 0; i < choiceVar.length; i++) {
+//       passwordPool += choiceVar[i];
+//       return passwordPool;
+//     };
+//     console.log(passwordPool);
+//   };
+  
+//   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
+// };
 
 // Write password to the #password input
 function writePassword() {
@@ -84,15 +109,16 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-}
-
-// Add event listener to generate button
-function clearBox() {
-  var passBox = document.querySelector('#password');
-  passBox.value = "Generating...";
 };
 
-generateBtn.addEventListener('click', clearBox);
+// Add event listener to generate button
+// function clearBox() {
+//   var passBox = document.querySelector('#password');
+//   passBox.value = "Generating...";
+//   writePassword();
+// };
+
+// generateBtn.addEventListener('click', clearBox);
 generateBtn.addEventListener('click', writePassword);
 
 
@@ -110,21 +136,21 @@ generateBtn.addEventListener('click', writePassword);
 // console.log(specChar);
 
 // loop to test string iteration
-var checkLoop = function (set) {
-  for (i = 0; i < set.length; i++) {
-    console.log(set[i]);
-  };
-};
+// var checkLoop = function (set) {
+//   for (i = 0; i < set.length; i++) {
+//     console.log(set[i]);
+//   };
+// };
 
 // test for random choice iteration
-var checkRandomLoop = function (list) {
-  var randomPick = Math.floor(Math.random() * list.length);
-  for (i = 0; i < list.length; i++) {
+// var checkRandomLoop = function (list) {
+//   var randomPick = Math.floor(Math.random() * list.length);
+//   for (i = 0; i < list.length; i++) {
     
-  };
-  console.log(randomPick.length);
-  return randomPick;
-};
+//   };
+//   console.log(randomPick.length);
+//   return randomPick;
+// };
 // checkLoop(alphaUppers);    //proof of concept for iteration
 // checkRandomLoop(numeric);  //proof of concept for random iteration 
 
