@@ -1,4 +1,4 @@
-let userChoice = [];
+let userChoice = "";
 const alphaLowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 const alphaUppers = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 const numericChars = ["0","1","2","3","4","5","6","7","8","9"];
@@ -41,28 +41,29 @@ function generatePassword() {
 // remove if false
 
   if (lowers) {
-    userChoice.concat(alphaLowers);
+    userChoice = userChoice.concat(alphaLowers);
   }; 
 
   if (uppers) {
-    userChoice.concat(alphaUppers);
+    userChoice = userChoice.concat(alphaUppers);
   };
 
   if (spec) {
-    userChoice.concat(spec);
+    userChoice = userChoice.concat(spec);
   };
 
   if (num) {
-    userChoice.concat(num);
+    userChoice = userChoice.concat(num);
   };
 
   if (userChoice === "") {
-    password = "Please choose at least one character type to include.";
-    return password;
+    choiceErr = "Please choose at least one character type to include.";
+    return choiceErr;
+  } else {
+    randomPass = randomArrayLooper(userChoice, userLength).join('');
+    return randomPass;
   };
 
-  password = randomArrayLooper(userChoice, userLength).join('');
-  return password;
 //   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
 };
 
@@ -85,6 +86,8 @@ function writePassword() {
   
     passwordText.value = password;
 };
+
+generateBtn.addEventListener('click', writePassword);
 
 
 // console.log(userChoice = [...alphaLowers,...alphaUppers,...numericChars,...specialChars]);
