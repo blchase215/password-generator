@@ -122,6 +122,39 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 
+// abandoned check function
+// function containsCheck(input) {
+//   let a = false;
+//   let b = false;
+//   let c = false;
+//   let d = false;
+
+//   for (i = 0; i < check.length; i++) {
+//     for (j = 0; j < check[i].length; j++) {
+
+//       const alphaLow = input.some(j=> check[i].indexOf(j) >= 0);
+//       const alphaUp = input.some(j=> alphaUppers.indexOf(j) >= 0);
+//       const numeric = input.some(j=> numericChars.indexOf(j) >= 0);
+//       const special = input.some(j=> specialChars.indexOf(j) >= 0);
+//       if (alphaLow) {
+//         a = true;
+//       } else if (alphaUp) {
+//         b = true;
+//       } else if (numeric){
+//         c = true;
+//       } else if (special){
+//         d = true;
+//       };
+//     };
+//   };
+  
+//   if (a && b && c && d) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
 
 // pseudocode
 
