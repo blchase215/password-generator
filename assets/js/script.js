@@ -19,36 +19,7 @@ let check = {
 function generatePassword() {
   
 // Get password length
-  let userLength = checkLength();
-
-// Confirm that it meets requirements
-  
-
-// Character set inclusion prompts
-  promptCharacters();
-
-  console.log(check);
-
-  if (userChoice === "") {
-    choiceErr = "Please choose at least one character type to include.";
-    return choiceErr;
-  } else {
-    let choices = userChoice.join('');
-    console.log(userChoice);
-    randomPass = randomArrayLooper(choices, userLength);
-    return randomPass;
-  };
-
-//   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
-};
-
-// random looper function takes
-// x - array to loop through
-// y - length of users passord choice, or length of individual array
-
-function checkLength() {
-
-  let userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
+  const userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
 
 // 0 is entered
 
@@ -71,9 +42,29 @@ function checkLength() {
     return rangeErr;
   } else {
     window.alert("Password Length of " + userLength + " Selected ✔️");
-    return userLength;
+  }; 
+
+// Character set inclusion prompts
+  promptCharacters();
+
+  console.log(check);
+
+  if (userChoice === "") {
+    choiceErr = "Please choose at least one character type to include.";
+    return choiceErr;
+  } else {
+    let choices = userChoice.join('');
+    console.log(userChoice);
+    randomPass = randomArrayLooper(choices, userLength);
+    return randomPass;
   };
-}
+
+//   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
+};
+
+// random looper function takes
+// x - array to loop through
+// y - length of users passord choice, or length of individual array
 
 function promptCharacters() {
 
@@ -119,6 +110,16 @@ const randomArrayLooper = function(x,y) {
   }
   return solution;
 };
+
+function checkIncludes() {
+  if (check.lowers) {
+    
+    const alphaLow = input.some(j=> check[i].indexOf(j) >= 0);
+  }
+  const alphaUp = input.some(j=> alphaUppers.indexOf(j) >= 0);
+  const numeric = input.some(j=> numericChars.indexOf(j) >= 0);
+  const special = input.some(j=> specialChars.indexOf(j) >= 0);
+}
 
 function resetValues() {
   check.lowers = false;
