@@ -18,9 +18,12 @@ let check = {
 
 function generatePassword() {
   
-// Get password length and confirm that it meets requirements
-  promptAndCheckLength();
+// Get password length
+  let userLength = checkLength();
+
+// Confirm that it meets requirements
   
+
 // Character set inclusion prompts
   promptCharacters();
 
@@ -43,11 +46,10 @@ function generatePassword() {
 // x - array to loop through
 // y - length of users passord choice, or length of individual array
 
-function promptAndCheckLength() {
-  // User chooses password length...
-  
-  const userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
-  
+function checkLength() {
+
+  let userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
+
 // 0 is entered
 
   if (userLength == 0) {
@@ -69,6 +71,7 @@ function promptAndCheckLength() {
     return rangeErr;
   } else {
     window.alert("Password Length of " + userLength + " Selected ✔️");
+    return userLength;
   };
 }
 
