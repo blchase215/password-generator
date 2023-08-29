@@ -18,7 +18,33 @@ let check = {
 
 function generatePassword() {
   
-// User chooses password length...
+// Get password length and confirm that it meets requirements
+  promptAndCheckLength();
+  
+// Character set inclusion prompts
+  promptCharacters();
+
+  console.log(check);
+
+  if (userChoice === "") {
+    choiceErr = "Please choose at least one character type to include.";
+    return choiceErr;
+  } else {
+    let choices = userChoice.join('');
+    console.log(userChoice);
+    randomPass = randomArrayLooper(choices, userLength);
+    return randomPass;
+  };
+
+//   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
+};
+
+// random looper function takes
+// x - array to loop through
+// y - length of users passord choice, or length of individual array
+
+function promptAndCheckLength() {
+  // User chooses password length...
   
   const userLength = window.prompt("Choose a Password length between 8 and 128 characters.", "8 - 128");
   
@@ -44,9 +70,10 @@ function generatePassword() {
   } else {
     window.alert("Password Length of " + userLength + " Selected ✔️");
   };
+}
 
-// Character set inclusion prompts
-  
+function promptCharacters() {
+
   const lowers = window.confirm("use lowercase letters?");
 
   if (lowers) {
@@ -78,35 +105,17 @@ function generatePassword() {
   } else {
     window.alert(specialChars.join('') + " Not Included ❌")
   };
-
-  console.log(check);
-
-  if (userChoice === "") {
-    choiceErr = "Please choose at least one character type to include.";
-    return choiceErr;
-  } else {
-    let choices = userChoice.join('');
-    console.log(userChoice);
-    randomPass = randomArrayLooper(choices, userLength);
-    return randomPass;
-  };
-
-//   return "'W.I.P'\n'Work in Progress'\nby Cardi B and Megan Thee Stallion";
 };
 
-// random looper function takes
-// x - array to loop through
-// y - length of users passord choice, or length of individual array
-
 const randomArrayLooper = function(x,y) {
-    let solution = "";
-    for (i = 0; i < y; i++) {
-      let random = Math.floor(Math.random() * x.length);
-      let char = x[random];
-      solution += char;
-    }
-    return solution;
-}
+  let solution = "";
+  for (i = 0; i < y; i++) {
+    let random = Math.floor(Math.random() * x.length);
+    let char = x[random];
+    solution += char;
+  }
+  return solution;
+};
 
 function resetValues() {
   check.lowers = false;
@@ -115,7 +124,7 @@ function resetValues() {
   check.special = false;
   userChoice = [];
   writePassword();
-}
+};
 
 function lowerConfirm() {
   userChoice = userChoice.concat(alphaLowers);
